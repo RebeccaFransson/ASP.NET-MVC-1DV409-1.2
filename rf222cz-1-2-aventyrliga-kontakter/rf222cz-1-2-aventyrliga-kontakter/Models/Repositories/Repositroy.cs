@@ -9,7 +9,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 {
     public class Repositroy : IRepository, IDisposable
     {
-        private AdventureWorksEntities _context = new AdventureWorksEntities();//datamodell //återlämna och stänga connection
+        private AWEntities _context = new AWEntities();//datamodell //återlämna och stänga connection
 
         public void Add(Contact contact)
         {

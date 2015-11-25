@@ -189,14 +189,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorksAssignmentModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModels\AdventureWorksModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\AdventureWorksModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\AdventureWorksModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataModels\Contact.cs">
-      <DependentUpon>AdventureWorksAssignmentModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\uspGetContacts_Result.cs">
-      <DependentUpon>AdventureWorksAssignmentModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\uspGetContact_Result.cs">
-      <DependentUpon>AdventureWorksAssignmentModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Repositories\IRepository.cs" />
     <Compile Include="Models\Repositories\Repositroy.cs" />
@@ -221,6 +236,17 @@
       <LastGenOutput>AdventureWorksAssignmentModel.cs</LastGenOutput>
       <CustomToolNamespace>rf222cz_1_2_aventyrliga_kontakter.Models</CustomToolNamespace>
     </Content>
+    <Content Include="Models\DataModels\AdventureWorksModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataModels\AdventureWorksModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksModel.cs</LastGenOutput>
+      <CustomToolNamespace>rf222cz_1_2_aventyrliga_kontakter.Models</CustomToolNamespace>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\DataModels\AdventureWorksAssignmentModel.edmx">
@@ -229,6 +255,13 @@
     </EntityDeploy>
     <Content Include="Models\DataModels\AdventureWorksAssignmentModel.edmx.diagram">
       <DependentUpon>AdventureWorksAssignmentModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DataModels\AdventureWorksModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdventureWorksModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataModels\AdventureWorksModel.edmx.diagram">
+      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

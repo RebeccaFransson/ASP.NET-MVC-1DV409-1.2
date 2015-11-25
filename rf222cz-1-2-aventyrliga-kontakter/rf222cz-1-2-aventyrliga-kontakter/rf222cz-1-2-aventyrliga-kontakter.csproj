@@ -166,57 +166,39 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\DataModels\AdventureWorksAssignmentModel.Context.cs">
+    <Compile Include="Models\DataModels\AdventureWorksDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksAssignmentModel.Context.tt</DependentUpon>
+      <DependentUpon>AdventureWorksDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModels\AdventureWorksAssignmentModel.cs">
+    <Compile Include="Models\DataModels\AdventureWorksDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksAssignmentModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModels\AdventureWorksAssignmentModel.Designer.cs">
+    <Compile Include="Models\DataModels\AdventureWorksDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksAssignmentModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataModels\AdventureWorksModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataModels\AdventureWorksModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataModels\AdventureWorksModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
+      <DependentUpon>AdventureWorksDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\Contact.cs">
-      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\uspGetContacts_Result.cs">
-      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\uspGetContact_Result.cs">
-      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
+      <DependentUpon>AdventureWorksDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Repositories\IRepository.cs" />
     <Compile Include="Models\Repositories\Repositroy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -225,43 +207,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DataModels\AdventureWorksAssignmentModel.Context.tt">
+    <Content Include="Models\DataModels\AdventureWorksDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdventureWorksAssignmentModel.edmx</DependentUpon>
-      <LastGenOutput>AdventureWorksAssignmentModel.Context.cs</LastGenOutput>
+      <DependentUpon>AdventureWorksDataModel.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataModels\AdventureWorksAssignmentModel.tt">
+    <Content Include="Models\DataModels\AdventureWorksDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdventureWorksAssignmentModel.edmx</DependentUpon>
-      <LastGenOutput>AdventureWorksAssignmentModel.cs</LastGenOutput>
-      <CustomToolNamespace>rf222cz_1_2_aventyrliga_kontakter.Models</CustomToolNamespace>
-    </Content>
-    <Content Include="Models\DataModels\AdventureWorksModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
-      <LastGenOutput>AdventureWorksModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DataModels\AdventureWorksModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
-      <LastGenOutput>AdventureWorksModel.cs</LastGenOutput>
+      <DependentUpon>AdventureWorksDataModel.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksDataModel.cs</LastGenOutput>
       <CustomToolNamespace>rf222cz_1_2_aventyrliga_kontakter.Models</CustomToolNamespace>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DataModels\AdventureWorksAssignmentModel.edmx">
+    <EntityDeploy Include="Models\DataModels\AdventureWorksDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdventureWorksAssignmentModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AdventureWorksDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DataModels\AdventureWorksAssignmentModel.edmx.diagram">
-      <DependentUpon>AdventureWorksAssignmentModel.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\DataModels\AdventureWorksModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdventureWorksModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DataModels\AdventureWorksModel.edmx.diagram">
-      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
+    <Content Include="Models\DataModels\AdventureWorksDataModel.edmx.diagram">
+      <DependentUpon>AdventureWorksDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

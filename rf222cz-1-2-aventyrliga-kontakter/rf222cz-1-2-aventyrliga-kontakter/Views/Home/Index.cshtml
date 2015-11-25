@@ -1,5 +1,79 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IQueryable<rf222cz_1_2_aventyrliga_kontakter.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Äventyrliga kontakter</h1>
+@model
+
+@if (Model != null && Model.Any())
+{
+    <table>
+
+        <tr>
+
+            <th></th>
+
+            <th>
+
+                EmailAddress
+
+            </th>
+
+            <th>
+
+                Firstname
+
+            </th>
+
+            <th>
+
+                Lastname
+
+            </th>
+
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+
+                    @Html.ActionLink("Redigera", "Edit", new { id = item.ContactID })
+
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.ContactID })
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.FirstName)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+
+
+}
+<p>
+    @Html.ActionLink("Lägg till födelsedag", "Create")
+</p>
+

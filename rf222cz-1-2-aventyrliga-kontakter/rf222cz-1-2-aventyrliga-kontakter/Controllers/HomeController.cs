@@ -8,6 +8,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
 {
     public class HomeController : Controller
     {
+        //private IRepository _repository = //skapar connection till vårt repositroy vida interfacxe
         public ActionResult Index()
         {
             return View();

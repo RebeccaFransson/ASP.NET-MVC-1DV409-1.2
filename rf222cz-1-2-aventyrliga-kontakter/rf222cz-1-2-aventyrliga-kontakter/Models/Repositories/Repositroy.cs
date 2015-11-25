@@ -1,4 +1,5 @@
-﻿using rf222cz_1_2_aventyrliga_kontakter.Models.DataModels;
+﻿
+using rf222cz_1_2_aventyrliga_kontakter.Models.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -41,7 +42,16 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 
         public IQueryable<Contact> FindAllContacts()
         {
-            return (IQueryable<Contact>)_context.Contact.ToList();//datamodell ej en fråga
+            try
+            {
+                return _context.Contact.ToList().AsQueryable();//datamodell ej en fråga     AsQueryable<Contact>()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+                return null;
+            }
+            
         }
 
         public Contact GetContactById(int contactId)

@@ -97,7 +97,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             var contact = _repository.GetContactById(id);
             if (contact == null)
             {
-                return HttpNotFound();//sedan min andra vy
+                return View("NotFound");//TODO: gör så att den fugnerar
             }
             return View(contact);
 
@@ -110,7 +110,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
 
             if (contact == null)
             {
-                return HttpNotFound();
+                return View("NotFound");//TODO: gör så att den fugnerar
             }
 
             if (TryUpdateModel(contact, String.Empty, new string[] { "EmailAddress", "FirstName", "LastName" }))//skyddar mig mot over-posting

@@ -24,6 +24,16 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             _repository = repository;
         }
 
+
+
+        public ActionResult Index()
+        {
+            //var model = _repository.FindAllContacts();
+            var model = _repository.GetLastContacts();
+            return View(model);
+        }
+
+
         public ActionResult Create()
         {
             return View();
@@ -50,35 +60,83 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             return View(contact);
         }
 
+
         public ActionResult Delete(int id = 0)
         {
-            throw new NotImplementedException();
+            var contact = _repository.GetContactById(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(contact);
         }
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed([Bind(Include = "ContactID")]int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var contactToDelete = new Contact { ContactID = id };
+                _repository.Delete(contactToDelete);
+                _repository.Save();
+                TempData["success"] = "The contact has been removed!";
+            }
+            catch (DataException)
+            {
+                TempData["error"] = "Failed to remove contact. Try again.";
+                return RedirectToAction("Delete", new { id = id });
+            }
+
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Dispose(bool disposing)
-        {
-            throw new NotImplementedException();
-        }
 
         public ActionResult Edit(int id = 0)
         {
-            throw new NotImplementedException();
+            var contact = _repository.GetContactById(id);
+            if (contact == null)
+            {
+                return HttpNotFound();//sedan min andra vy
+            }
+            return View(contact);
+
         }
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Contact contact)
         {
-            throw new NotImplementedException();
+            //var contactToUpdate = _repository.GetContactById(contact.ContactID);
+
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (TryUpdateModel(contact, String.Empty, new string[] { "EmailAddress", "FirstName", "LastName" }))//skyddar mig mot over-posting
+            {
+                try
+                {
+                    _repository.Update(contact);
+                    _repository.Save();
+                    TempData["success"] = "Saved changes.";
+                    return RedirectToAction("Index");
+                }
+                catch (DataException)
+                {
+                    TempData["error"] = "Failed to save changes! Try again.";
+                }
+            }
+
+            return View(contact);
         }
 
 
-        public ActionResult Index()
+        
+        protected override void Dispose(bool disposing)
         {
-            var model = _repository.FindAllContacts();
-            //var model = _repository.GetLastContacts();
-            return View(model);
+            _repository.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

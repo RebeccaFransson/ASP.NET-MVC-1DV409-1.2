@@ -9,51 +9,54 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 {
     public class Repositroy : IRepository, IDisposable
     {
-        private readonly Entities _context = new Entities();//datamodell //återlämna och stänga connection
+        private readonly Entities _entities = new Entities();//datamodell //återlämna och stänga connection
 
         public void Add(Contact contact)
         {
-            _context.Contacts.Add(contact);
+            _entities.Contacts.Add(contact);
         }
 
         public void Delete(Contact contact)
         {
-            _context.Contacts.Remove(contact);
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
+            if (_entities.Entry(contact).State == EntityState.Detached)
+            {
+                _entities.Contacts.Attach(contact);
+            }
+            _entities.Contacts.Remove(contact);
         }
 
         public void Update(Contact contact)
         {
-            if (_context.Entry(contact).State == EntityState.Detached)
+            if (_entities.Entry(contact).State == EntityState.Detached)
             {
-                _context.Contacts.Attach(contact);
+                _entities.Contacts.Attach(contact);
             }
 
-            _context.Entry(contact).State = EntityState.Modified;
+            _entities.Entry(contact).State = EntityState.Modified;
         }
-        
+
+        public void Save()
+        {
+            _entities.SaveChanges();
+        }
+
 
 
 
         public IQueryable<Contact> FindAllContacts()
         {
-            return _context.Contacts.AsQueryable();//datamodell ej en fråga
+            return _entities.Contacts.AsQueryable();//datamodell ej en fråga
         }
 
         public Contact GetContactById(int contactId)
         {
-            return _context.Contacts.Find(contactId);
+            return _entities.Contacts.Find(contactId);
         }
 
         public List<Contact> GetLastContacts(int count = 20)
         {
-            //IQueryable allContacts = FindAllContacts();
-            //var hi = allContacts.Reverse().Take(count).Reverse();
-            throw new NotImplementedException();
+            List<Contact> contacts = _entities.Contacts.ToList();
+            return contacts.Skip(Math.Max(0, contacts.Count() - count)).ToList();
         }
 
 
@@ -67,7 +70,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
             {
                 if (disposing)
                 {
-                    _context.Dispose();
+                    _entities.Dispose();
                 }
             }
             this.disposed = true;

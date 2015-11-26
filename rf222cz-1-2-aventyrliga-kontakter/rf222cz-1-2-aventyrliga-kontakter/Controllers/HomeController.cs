@@ -27,7 +27,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         public ActionResult Create()
         {
             return View();
-        }//
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "ContactID")]Contact contact)
@@ -37,14 +37,14 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
                 if (ModelState.IsValid)
                 {
                     _repository.Add(contact);
-                    _repository.Save();
+                    _repository.Save();//något fel på min save
                     TempData["success"] = "Contact is saved.";
                     return RedirectToAction("Index");
                 }
             }
             catch (DataException)
             {
-                TempData["error"] = "Misslyckades att spara födelsedatumet. Försök igen, och kvarstår problemet kontakta systemadministratören.";
+                TempData["error"] = "Failed to add contact. Try again.";
             }
 
             return View(contact);

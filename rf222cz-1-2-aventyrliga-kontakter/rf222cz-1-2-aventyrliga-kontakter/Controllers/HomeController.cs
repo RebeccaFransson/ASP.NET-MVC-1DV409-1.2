@@ -27,7 +27,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         public ActionResult Create()
         {
             return View();
-        }
+        }//
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "ContactID")]Contact contact)

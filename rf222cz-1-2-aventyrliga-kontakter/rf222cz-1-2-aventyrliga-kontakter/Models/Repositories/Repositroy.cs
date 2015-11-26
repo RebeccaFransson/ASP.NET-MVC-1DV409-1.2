@@ -51,6 +51,8 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 
         public List<Contact> GetLastContacts(int count = 20)
         {
+            //IQueryable allContacts = FindAllContacts();
+            //var hi = allContacts.Reverse().Take(count).Reverse();
             throw new NotImplementedException();
         }
 

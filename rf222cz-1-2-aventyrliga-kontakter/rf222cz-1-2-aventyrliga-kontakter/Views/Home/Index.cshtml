@@ -4,6 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+<p>
+    @Html.ActionLink("Add Contact", "Create")
+</p>
 @if (Model != null && Model.Any())
 {
     <table>
@@ -14,12 +19,6 @@
 
             <th>
 
-                EmailAddress
-
-            </th>
-
-            <th>
-
                 Firstname
 
             </th>
@@ -27,6 +26,12 @@
             <th>
 
                 Lastname
+
+            </th>
+
+            <th>
+
+                EmailAddress
 
             </th>
 
@@ -47,12 +52,6 @@
 
                 <td>
 
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-
-                </td>
-
-                <td>
-
                     @Html.DisplayFor(modelItem => item.FirstName)
 
                 </td>
@@ -60,6 +59,12 @@
                 <td>
 
                     @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+
                 </td>
 
             </tr>
@@ -70,7 +75,4 @@
 
 
 }
-<p>
-    @Html.ActionLink("Lägg till födelsedag", "Create")
-</p>
 

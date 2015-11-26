@@ -22,3 +22,21 @@ select,
 textarea {
     max-width: 280px;
 }
+
+tr{
+    padding-top:10px;
+}
+td{
+    padding-right: 30px;
+}
+.alert-box{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+.success{
+    background-color:forestgreen;
+}
+.error{
+    background-color:indianred;
+}

@@ -67,13 +67,3 @@ C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-avent
 C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\obj\Debug\rf222cz-1-2-aventyrliga-kontakter.dll
 C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\obj\Debug\rf222cz-1-2-aventyrliga-kontakter.pdb
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.ServiceLocation.dll
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.Unity.Configuration.dll
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.Unity.dll
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Unity.Mvc5.dll
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.ServiceLocation.xml
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.Unity.xml
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.Unity.Configuration.xml
-C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml

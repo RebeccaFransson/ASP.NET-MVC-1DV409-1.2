@@ -1,5 +1,4 @@
-﻿
-using rf222cz_1_2_aventyrliga_kontakter.Models.DataModels;
+﻿using rf222cz_1_2_aventyrliga_kontakter.Models.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,16 +9,16 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 {
     public class Repositroy : IRepository, IDisposable
     {
-        private AdventureEntities _context = new AdventureEntities();//datamodell //återlämna och stänga connection
+        private Entities _context = new Entities();//datamodell //återlämna och stänga connection
 
         public void Add(Contact contact)
         {
-            _context.Contact.Add(contact);
+            _context.Contacts.Add(contact);
         }
 
         public void Delete(Contact contact)
         {
-            _context.Contact.Remove(contact);
+            _context.Contacts.Remove(contact);
         }
 
         public void Save()
@@ -31,7 +30,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
         {
             if (_context.Entry(contact).State == EntityState.Detached)
             {
-                _context.Contact.Attach(contact);
+                _context.Contacts.Attach(contact);
             }
 
             _context.Entry(contact).State = EntityState.Modified;
@@ -42,21 +41,12 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 
         public IQueryable<Contact> FindAllContacts()
         {
-            try
-            {
-                return _context.Contact.ToList().AsQueryable();//datamodell ej en fråga     AsQueryable<Contact>()
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("An error occurred: '{0}'", e);
-                return null;
-            }
-            
+            return _context.Contacts.AsQueryable();//datamodell ej en fråga
         }
 
         public Contact GetContactById(int contactId)
         {
-            return _context.Contact.Find(contactId);
+            return _context.Contacts.Find(contactId);
         }
 
         public List<Contact> GetLastContacts(int count = 20)

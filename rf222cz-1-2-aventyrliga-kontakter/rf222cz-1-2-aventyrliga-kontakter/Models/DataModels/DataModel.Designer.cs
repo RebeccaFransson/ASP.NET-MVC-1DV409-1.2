@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ymafr\Source\Repos\rf222cz-1-2-aventyrliga-kontakter2\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\Models\DataModels\DataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ymafr\OneDrive\Dokument\GitHub\aventyrligakontakter\rf222cz-1-2-aventyrliga-kontakter\rf222cz-1-2-aventyrliga-kontakter\Models\DataModels\DataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

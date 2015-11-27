@@ -16,7 +16,7 @@
             <ScalarProperty Name="EmailAddress" ParameterName="EmailAddress" />
             <ScalarProperty Name="LastName" ParameterName="LastName" />
             <ScalarProperty Name="FirstName" ParameterName="FirstName" />
-            <ResultBinding Name="ContactID" ColumnName="contactId" />
+            <ResultBinding Name="ContactID" ColumnName="NewContactId" />
           </InsertFunction>
           <UpdateFunction FunctionName="dv409_AdventureWorksAssignmentModel.Store.uspUpdateContact">
             <ScalarProperty Name="EmailAddress" ParameterName="EmailAddress" Version="Current" />

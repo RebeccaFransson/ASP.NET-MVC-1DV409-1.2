@@ -17,7 +17,6 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         {
             //tom!
         }
-
         //constructor with instance to a repository
         public HomeController(IRepository repository)
         {
@@ -82,9 +81,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
                 _repository.Save();
                 TempData["success"] = "The contact has been removed!";
             }
-            catch (DataException)
+            catch (DataException ex)
             {
-                TempData["error"] = "Failed to remove contact. Try again.";
+                TempData["error"] = String.Format("Failed to remove contact. Try again. {0}", ex.InnerException.InnerException.Message);
                 return RedirectToAction("Delete", new { id = id });
             }
 
@@ -97,7 +96,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             var contact = _repository.GetContactById(id);
             if (contact == null)
             {
-                return View("NotFound");//TODO: gör så att den fugnerar
+                return View("ContactNotFound");//TODO: gör så att den fugnerar
             }
             return View(contact);
 
@@ -106,11 +105,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Contact contact)
         {
-            //var contactToUpdate = _repository.GetContactById(contact.ContactID);
-
             if (contact == null)
             {
-                return View("NotFound");//TODO: gör så att den fugnerar
+                return View("ContactNotFound");
             }
 
             if (TryUpdateModel(contact, String.Empty, new string[] { "EmailAddress", "FirstName", "LastName" }))//skyddar mig mot over-posting
@@ -122,9 +119,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
                     TempData["success"] = "Saved changes.";
                     return RedirectToAction("Index");
                 }
-                catch (DataException)
+                catch (DataException ex)
                 {
-                    TempData["error"] = "Failed to save changes! Try again.";
+                    TempData["error"] = String.Format("Failed to edit contact. Try again. {0}", ex.InnerException.InnerException.Message);
                 }
             }
 

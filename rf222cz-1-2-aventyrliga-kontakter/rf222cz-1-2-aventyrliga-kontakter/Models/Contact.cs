@@ -20,14 +20,17 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models
             public int ContactID { get; set; }
 
             [Required(ErrorMessage = "Firstname cannot be empty.")]
+            [StringLength(50, ErrorMessage ="The firstname cannot be longer than 50 caracters")]
             //[DisplayName("Firstname")]
             public int FirstName { get; set; }
 
             [Required(ErrorMessage = "Lastname cannot be empty.")]
+            [StringLength(50, ErrorMessage = "The lastname cannot be longer than 50 caracters")]
             //[DisplayName("Lastname")]
             public int LastName { get; set; }
 
             [Required(ErrorMessage = "EmailAddress cannot be empty.")]
+            [EmailAddress(ErrorMessage = "Invalid Email Address")]
             //[DisplayName("EmailAdress")]
             public int EmailAddress { get; set; }
 

@@ -27,9 +27,8 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
 
         public ActionResult Index()
         {
-            //var model = _repository.FindAllContacts();
-            var model = _repository.GetLastContacts();
-            return View(model);
+            //return View(_repository.FindAllContacts());
+            return View(_repository.GetLastContacts());
         }
 
 
@@ -51,9 +50,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (DataException)
+            catch (DataException ex)
             {
-                TempData["error"] = "Failed to add contact. Try again.";
+                TempData["error"] = String.Format("Failed to add contact. Try again. {0}", ex.InnerException.InnerException.Message);
             }
 
             return View(contact);

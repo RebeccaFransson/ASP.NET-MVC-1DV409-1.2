@@ -30,7 +30,11 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             //return View(_repository.FindAllContacts());
             return View(_repository.GetLastContacts());
         }
-
+        [HandleError]
+        public ActionResult Error()
+        {
+            return View("Error");
+        }
 
         public ActionResult Create()
         {
@@ -64,7 +68,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             var contact = _repository.GetContactById(id);
             if (contact == null)
             {
-                return HttpNotFound();
+                return View("ContactNotFound");
             }
 
             return View(contact);

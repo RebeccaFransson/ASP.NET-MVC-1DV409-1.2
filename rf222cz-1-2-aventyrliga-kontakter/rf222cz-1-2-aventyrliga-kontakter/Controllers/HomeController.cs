@@ -30,11 +30,11 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             //return View(_repository.FindAllContacts());
             return View(_repository.GetLastContacts());
         }
-        [HandleError]
-        public ActionResult Error()
-        {
-            return View("Error");
-        }
+        //[HandleError]
+        //public ActionResult Error()
+        //{
+        //    return View("Error");
+        //}
 
         public ActionResult Create()
         {
@@ -49,7 +49,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
                 if (ModelState.IsValid)
                 {
                     _repository.Add(contact);
-                    _repository.Save();//något fel på min save
+                    _repository.Save();
                     TempData["success"] = "Contact is saved.";
                     return RedirectToAction("Index");
                 }
@@ -63,9 +63,13 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         }
 
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Delete(int? id)
         {
-            var contact = _repository.GetContactById(id);
+            if (!id.HasValue)//Kommer dock bara hit m man skriver rätt sökväg utan id
+            {
+                return View("PageNotFound");//kunde inte skriva ~/Shared/PageNotFound..?
+            }
+            var contact = _repository.GetContactById(id.Value);
             if (contact == null)
             {
                 return View("ContactNotFound");
@@ -94,12 +98,16 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         }
 
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int? id)
         {
-            var contact = _repository.GetContactById(id);
+            if (!id.HasValue)
+            {
+                return View("PageNotFound");
+            }
+            var contact = _repository.GetContactById(id.Value);
             if (contact == null)
             {
-                return View("ContactNotFound");//TODO: gör så att den fugnerar
+                return View("ContactNotFound");
             }
             return View(contact);
 

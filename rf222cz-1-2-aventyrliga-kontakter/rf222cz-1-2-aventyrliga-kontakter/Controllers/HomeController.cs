@@ -17,7 +17,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         {
             //tom!
         }
-        //constructor with instance to a repository
+        //constructor with instance to a repository to easier test the app
         public HomeController(IRepository repository)
         {
             _repository = repository;
@@ -30,11 +30,6 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             //return View(_repository.FindAllContacts());
             return View(_repository.GetLastContacts());
         }
-        //[HandleError]
-        //public ActionResult Error()
-        //{
-        //    return View("Error");
-        //}
 
         public ActionResult Create()
         {
@@ -65,9 +60,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
 
         public ActionResult Delete(int? id)
         {
-            if (!id.HasValue)//Kommer dock bara hit m man skriver rätt sökväg utan id
+            if (!id.HasValue)
             {
-                return View("PageNotFound");//kunde inte skriva ~/Shared/PageNotFound..?
+                return View("Error");
             }
             var contact = _repository.GetContactById(id.Value);
             if (contact == null)
@@ -102,7 +97,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         {
             if (!id.HasValue)
             {
-                return View("PageNotFound");
+                return View("Error");
             }
             var contact = _repository.GetContactById(id.Value);
             if (contact == null)

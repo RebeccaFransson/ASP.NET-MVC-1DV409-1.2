@@ -17,7 +17,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models
 
         private class Contact_Metadata
         {
-           //public int? ContactID { get; set; }
+           //public int? ContactID { get; set; } //används ej
 
             [Required(ErrorMessage = "Firstname cannot be empty.")]
             [StringLength(50, ErrorMessage ="The firstname cannot be longer than 50 caracters")]

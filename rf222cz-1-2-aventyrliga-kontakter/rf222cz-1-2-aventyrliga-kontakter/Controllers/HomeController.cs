@@ -17,20 +17,24 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
         {
             //tom!
         }
-        //constructor with instance to a repository to easier test the app
+        //konstruktor med instans till ett repository för att enklare testa applikstionen
         public HomeController(IRepository repository)
         {
             _repository = repository;
         }
 
 
-
+        /*
+        STARTSIDA
+            */
         public ActionResult Index()
         {
             //return View(_repository.FindAllContacts());
             return View(_repository.GetLastContacts());
         }
-
+        /*
+        CREATE
+            */
         public ActionResult Create()
         {
             return View();
@@ -57,7 +61,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             return View(contact);
         }
 
-
+        /*
+        DELETE
+            */
         public ActionResult Delete(int? id)
         {
             if (!id.HasValue)
@@ -92,7 +98,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Controllers
             return RedirectToAction("Index");
         }
 
-
+        /*
+        EDIT
+            */
         public ActionResult Edit(int? id)
         {
             if (!id.HasValue)

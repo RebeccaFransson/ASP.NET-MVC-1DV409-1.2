@@ -9,7 +9,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 {
     public class Repositroy : IRepository, IDisposable
     {
-        private readonly Entities _entities = new Entities();//datamodell //återlämna och stänga connection
+        private readonly Entities _entities = new Entities();//datamodell, vars connection skall återlämnas och stängas i disposable
 
         public void Add(Contact contact)
         {
@@ -43,9 +43,9 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 
 
 
-        public IQueryable<Contact> FindAllContacts()
+        public IQueryable<Contact> FindAllContacts()//används ej
         {
-            return _entities.Contacts.AsQueryable();//datamodell ej en fråga
+            return _entities.Contacts.AsQueryable();
         }
 
         public Contact GetContactById(int contactId)
@@ -55,8 +55,7 @@ namespace rf222cz_1_2_aventyrliga_kontakter.Models.Repositories
 
         public List<Contact> GetLastContacts(int count = 20)
         {
-            List<Contact> contacts = _entities.Contacts.ToList();
-            return contacts.Skip(Math.Max(0, contacts.Count() - count)).ToList();
+            return _entities.Contacts.OrderBy(c => c.ContactID).Skip(Math.Max(0, _entities.Contacts.Count() - count)).ToList();
         }
 
 
